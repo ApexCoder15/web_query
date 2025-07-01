@@ -1,0 +1,11 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment
+ripplica/
+
+# Ignore environment variable files
+.env
+
+/frontend/my_app/node_modules
