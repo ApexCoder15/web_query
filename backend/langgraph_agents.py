@@ -27,7 +27,7 @@ no_articles = 5
 
 # ---- Node 1: Query Validator ----
 def validate_query(state: AgentState) -> AgentState:
-    prompt = f"Is the given query valid for web search? Reply 'Yes' or 'No' and nothing else. For example: 'Walk my pet' or 'add apples to grocery' are not valid search query. \nQuery: {state['query']}"
+    prompt = f"Is the given query valid for web search? Reply 'Yes' if its a valid search query else 'No' and nothing else. For example: 'Walk my pet' or 'add apples to grocery' are not valid search query. So anything that sounds like a command is not a valid search query.\nQuery: {state['query']}"
     result = llm.predict(prompt).strip().lower()
     return {**state, "is_valid": result.startswith("yes")}
 
